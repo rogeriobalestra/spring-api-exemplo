@@ -21,11 +21,11 @@ public class ExemploApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Cliente c1 = new Cliente(1, "Alagoas", "alagoas@gmail.com", 30, "2222-3333");
-		
-		Produto p1 = new Produto(null, "celular", 1, 500.00, c1);
-		
-		clienteService.salvar(c1);
+//		Cliente c1 = new Cliente(1, "Alagoas", "alagoas@gmail.com", 30, "2222-3333");
+//		
+//		Produto p1 = new Produto(null, "celular", 1, 500.00, c1);
+//		
+//		clienteService.salvar(c1);
 	}
 
 }

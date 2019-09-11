@@ -1,20 +1,17 @@
 package br.com.unicid.exemplo.exemplo.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "TB_PRODUTO")
@@ -32,6 +29,12 @@ public class Produto implements Serializable {
 	
 	private double valor;
 	
+	
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
+	
 
 	public Produto() {
 		//vazio
@@ -45,11 +48,7 @@ public class Produto implements Serializable {
 		this.cliente = cliente;
 	}
 
-	@JsonBackReference
-	@ManyToOne
-	@JoinColumn(name = "cliente_id")
-	private Cliente cliente;
-	
+
 	public Integer getId() {
 		return id;
 	}
