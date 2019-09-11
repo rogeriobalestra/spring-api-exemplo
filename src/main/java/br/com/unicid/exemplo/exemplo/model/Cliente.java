@@ -3,7 +3,6 @@ package br.com.unicid.exemplo.exemplo.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,37 +10,27 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "TB_CLIENTE")
-public class Cliente implements Serializable{
+public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	
 	private String nome;
 	private String email;
 	private int idade;
 	private String telefone;
 
-
 	@OneToMany(mappedBy = "cliente")
 	private List<Produto> produtos = new ArrayList<Produto>();
-	
-	
-	
+
 	public Cliente() {
-		//vazio
+		// vazio
 	}
-	
-	
-	
+
 	public Cliente(Integer id, String nome, String email, int idade, String telefone) {
 		super();
 		this.id = id;
@@ -98,8 +87,5 @@ public class Cliente implements Serializable{
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
-	
-	
-	
 
 }
